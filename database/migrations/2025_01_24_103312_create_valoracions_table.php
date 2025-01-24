@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Videojuego;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,15 +13,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('videojuegos', function (Blueprint $table) {
+        Schema::create('valoracions', function (Blueprint $table) {
             $table->id();
+            $table->enum('puntuacion', [1, 2, 3, 4, 5]);
+            $table->text('comentario')->nullable();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->string('titulo');
-            $table->text('descripcion');
-            $table->string('lanzamiento');
-            $table->string('genero');
-            $table->string('plataforma');
-            $table->string('imagen')->nullable()->default('images/ipd.webp');
+            $table->foreignIdFor(Videojuego::class)->constrained()->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('videojuegos');
+        Schema::dropIfExists('valoracions');
     }
 };

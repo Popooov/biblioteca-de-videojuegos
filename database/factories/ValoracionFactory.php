@@ -3,12 +3,13 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Videojuego;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Videojuego>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Valoracion>
  */
-class VideojuegoFactory extends Factory
+class ValoracionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,11 +20,9 @@ class VideojuegoFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'titulo' => fake()->word(),
-            'descripcion' => fake()->text(),
-            'lanzamiento' => fake()->date(),
-            'genero' => fake()->word(),
-            'plataforma' => fake()->word()
+            'videojuego_id' => Videojuego::factory(),
+            'puntuacion' => fake()->numberBetween(1, 5),
+            'comentario' => fake()->text(),
         ];
     }
 }
