@@ -5,7 +5,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $videojuegos = Videojuego::all();
+    $videojuegos = Videojuego::with('user')->paginate(12);
 
     return view('index', [
         'videojuegos' => $videojuegos
