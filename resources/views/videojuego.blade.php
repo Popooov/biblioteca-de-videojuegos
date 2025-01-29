@@ -6,7 +6,7 @@
         <div class="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
             <div class="relative flex w-full items-center overflow-hidden bg-white px-4 pt-14 pb-8 shadow-xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                 <div class="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-                    <img src="{{ asset($videojuego['imagen']) }}" alt="imagen del videojuego {{ $videojuego['titulo'] }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover sm:col-span-4 lg:col-span-5">
+                    <img src="{{ $videojuego['imagen'] }}" alt="caratula del videojuego {{ $videojuego['titulo'] }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover sm:col-span-4 lg:col-span-5">
                     <div class="sm:col-span-8 lg:col-span-7">
                       <h2 class="text-2xl font-bold text-gray-900 sm:pr-12">{{ $videojuego['titulo'] }}</h2>
             
