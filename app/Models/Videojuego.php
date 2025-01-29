@@ -15,7 +15,8 @@ class Videojuego extends Model
         'descripcion',
         'lanzamiento',
         'genero',
-        'plataforma'
+        'plataforma',
+        'imagen'
     ];
 
     public function user () {
