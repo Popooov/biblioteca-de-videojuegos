@@ -45,23 +45,7 @@
                                             <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                                         </button>
                                     </div>
-                    
-                                    <!--
-                                    Dropdown menu, show/hide based on menu state.
-                    
-                                    Entering: "transition ease-out duration-100"
-                                        From: "transform opacity-0 scale-95"
-                                        To: "transform opacity-100 scale-100"
-                                    Leaving: "transition ease-in duration-75"
-                                        From: "transform opacity-100 scale-100"
-                                        To: "transform opacity-0 scale-95"
-                                    -->
-                                    <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                                    <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -87,7 +71,7 @@
                 <div class="md:hidden" id="mobile-menu">
                     <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Biblioteca de videojuegos</a>
+                        <a href="/" :active="request()->is('/')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Biblioteca de videojuegos</a>
                         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Iniciar Sesión</a>
                         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Registrarse</a>
                     </div>
@@ -108,18 +92,16 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="mt-3 space-y-1 px-2">
-                            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
-                            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
-                            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
-                        </div>
+                        
                     </div>
                 </div>
             </nav>
         
             <header class="bg-white shadow">
-                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between sm:items-center">
                     <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
+
+                    <x-button href="/aniadir">Añadir videojuego</x-button>
                 </div>
             </header>
             <main>
