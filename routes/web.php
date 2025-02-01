@@ -5,25 +5,14 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\VideojuegoController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(VideojuegoController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::get('/create', 'create');
-    Route::get('/{videojuego}', 'show');
-    Route::post('/', 'store');
-    Route::get('/{videojuego}/edit', 'edit');
-    Route::patch('/{videojuego}', 'update');
-    Route::delete('/{videojuego}', 'destroy');
-});
+Route::view('/', 'home');
+
+Route::resource('videojuegos', VideojuegoController::class);
 
 // Auth
-Route::get('/u/register', [RegisteredUserController::class, 'create']);
-Route::post('/u/register', [RegisteredUserController::class, 'store']);
+Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
 
-Route::get('/u/login', [SessionController::class, 'create']);
-Route::post('/u/login', [SessionController::class, 'store']);
-
-// Route::get('/', function () {
-//     return redirect('/videojuegos');
-// });
-
-// Route::resource('videojuegos', VideojuegoController::class);
+Route::get('/login', [SessionController::class, 'create']);
+Route::post('/login', [SessionController::class, 'store']);
+Route::post('/logout', [SessionController::class, 'destroy']);

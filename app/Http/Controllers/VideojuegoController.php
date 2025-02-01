@@ -42,7 +42,7 @@ class VideojuegoController extends Controller
             // 'imagen' => request('imagen')
         ]);
     
-        return redirect('/');
+        return redirect('/videojuegos');
     }
 
     public function edit(Videojuego $videojuego) {
@@ -66,12 +66,12 @@ class VideojuegoController extends Controller
             'plataforma' => request('plataforma'),
         ]);
     
-        return redirect('/' . $videojuego->id);
+        return redirect('/videojuegos/' . $videojuego->id);
     }
 
     public function destroy(Videojuego $videojuego) {
         $videojuego->delete();
 
-        return redirect('/');
+        return redirect('/videojuegos');
     }
 }

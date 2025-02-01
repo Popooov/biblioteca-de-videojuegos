@@ -2,7 +2,7 @@
     <x-slot:heading>
         Inicio de sesión
     </x-slot:heading>
-    <form method="POST" action="/u/login">
+    <form method="POST" action="/login">
         @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
@@ -11,7 +11,7 @@
               <x-form-field>
                 <x-form-label for="email">Correo electrónico</x-form-label>
                 <div class="mt-2">
-                  <x-form-input name="email" id="email" type="email" required />
+                  <x-form-input name="email" id="email" :value="old('email')" type="email" required />
                     <x-form-error name="email" />
                 </div>
               </x-form-field>

@@ -27,7 +27,7 @@
           <img src="{{ $videojuego->imagen }}" alt="caratula del videojuego {{ $videojuego->titulo }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover">
         </div>
         <div>
-          <x-button href="/{{ $videojuego->id }}/edit">Editar videojuego</x-button>
+          <x-button href="/videojuegos/{{ $videojuego->id }}/edit">Editar videojuego</x-button>
         </div>
       </div>
 

@@ -2,7 +2,7 @@
     <x-slot:heading>
       Añadir videojuego
     </x-slot:heading>
-    <form method="POST" action="/">
+    <form method="POST" action="/videojuegos">
         @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
@@ -73,7 +73,7 @@
       
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
-          <a href="/" class="text-sm/6 font-semibold text-gray-700">Cancelar</a>
+          <a href="/videojuegos" class="text-sm/6 font-semibold text-gray-700">Cancelar</a>
           <x-form-button>Añadir</x-form-button>
         </div>
       </form>
