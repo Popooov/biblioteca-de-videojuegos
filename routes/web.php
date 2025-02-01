@@ -17,7 +17,9 @@ Route::get('/videojuegos/{videojuego}/edit', [VideojuegoController::class, 'edit
     ->middleware('auth')
     ->can('edit', 'videojuego');
 Route::patch('/videojuegos/{videojuego}', [VideojuegoController::class, 'update']);
-Route::delete('/videojuegos/{videojuego}', [VideojuegoController::class, 'destroy']);
+Route::delete('/videojuegos/{videojuego}', [VideojuegoController::class, 'destroy'])
+    ->middleware('auth')
+    ->can('delete', 'videojuego');
 
 // Auth
 Route::get('/register', [RegisteredUserController::class, 'create']);

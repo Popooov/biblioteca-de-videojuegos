@@ -47,9 +47,9 @@ class VideojuegoPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Videojuego $videojuego): bool
+    public function delete(User $user): bool
     {
-        return false;
+        return $user->isAdmin === 1;
     }
 
     /**

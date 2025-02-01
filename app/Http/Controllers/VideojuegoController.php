@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Videojuego;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class VideojuegoController extends Controller
@@ -32,9 +34,9 @@ class VideojuegoController extends Controller
             'genero' => ['required'],
             'plataforma' => ['required'],
         ]);
-    
+        
         Videojuego::create([
-            'user_id' => 21,
+            'user_id' => Auth::getUser()->id,
             'titulo' => request('titulo'),
             'descripcion' => request('descripcion'),
             'lanzamiento' => request('lanzamiento'),
