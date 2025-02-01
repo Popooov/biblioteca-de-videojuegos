@@ -44,7 +44,7 @@
             
                 <div class="md:hidden" id="mobile-menu">
                     <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                        <x-nav-link href="/" :active="request()->is('/')">Inicio</x-nav-link>
+                        <x-nav-link href="/" :active="request()->is('/')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Inicio</x-nav-link>
                         <x-nav-link href="/videojuegos" :active="request()->is('/videojuegos')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Biblioteca de videojuegos</x-nav-link>
                     </div>
                     <div class="border-t border-gray-700 pb-3 pt-4">
@@ -65,9 +65,7 @@
             <header class="bg-white shadow">
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between sm:items-center">
                     <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
-
                     <x-button href="/videojuegos/create">Añadir videojuego</x-button>
-                    
                 </div>
             </header>
             <main>

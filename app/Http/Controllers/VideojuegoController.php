@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Videojuego;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class VideojuegoController extends Controller
 {
@@ -33,7 +34,7 @@ class VideojuegoController extends Controller
         ]);
     
         Videojuego::create([
-            'user_id' => 1,
+            'user_id' => 21,
             'titulo' => request('titulo'),
             'descripcion' => request('descripcion'),
             'lanzamiento' => request('lanzamiento'),

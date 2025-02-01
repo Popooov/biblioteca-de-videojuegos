@@ -24,11 +24,14 @@
           </dl>
         </div>
         <div class="grid grid-cols-1">
-          <img src="{{ $videojuego->imagen }}" alt="caratula del videojuego {{ $videojuego->titulo }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover">
+          <img src="{{ asset($videojuego->imagen) }}" alt="caratula del videojuego {{ $videojuego->titulo }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover">
         </div>
-        <div>
-          <x-button href="/videojuegos/{{ $videojuego->id }}/edit">Editar videojuego</x-button>
-        </div>
+        
+        @can('edit', $videojuego)
+          <div>
+            <x-button href="/videojuegos/{{ $videojuego->id }}/edit">Editar videojuego</x-button>
+          </div>
+        @endcan
       </div>
 
     </div>
