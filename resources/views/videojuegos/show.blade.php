@@ -24,7 +24,11 @@
           </dl>
         </div>
         <div class="grid grid-cols-1">
-          <img src="{{ asset($videojuego->imagen) }}" alt="caratula del videojuego {{ $videojuego->titulo }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover">
+          @if ($videojuego->imagen)
+          <img src="{{ asset('storage/' . $videojuego->imagen) }}" alt="caratula del videojuego {{ $videojuego->titulo }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover">
+          @else
+            <img src="{{ asset($videojuego->imagen) }}" alt="caratula del videojuego {{ $videojuego->titulo }}" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover">
+          @endif
         </div>
         
         @can('edit', $videojuego)

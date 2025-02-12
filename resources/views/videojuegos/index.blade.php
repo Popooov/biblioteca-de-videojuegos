@@ -6,7 +6,11 @@
     <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         @foreach ($videojuegos as $videojuego)
           <div class="group relative">
-            <img src="{{ $videojuego['imagen'] }}" alt="por defecto" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+            @if ($videojuego->imagen)
+              <img src="{{ asset('storage/' . $videojuego->imagen) }}" alt="caratula" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+            @else
+              <img src="{{ $videojuego->imagen }}" alt="caratula" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+            @endif
             <div class="mt-4 flex justify-between">
               <div>
                 <h3 class="text-sm text-gray-700">

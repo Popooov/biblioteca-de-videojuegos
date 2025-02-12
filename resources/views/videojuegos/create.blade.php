@@ -2,7 +2,7 @@
     <x-slot:heading>
       Añadir videojuego
     </x-slot:heading>
-    <form method="POST" action="/videojuegos">
+    <form method="POST" action="/videojuegos" enctype="multipart/form-data">
         @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
@@ -59,11 +59,11 @@
                     <div class="mt-4 flex text-sm/6 text-gray-600">
                       <label for="subir-imagen" class="relative cursor-pointer rounded-md bg-gray-100 font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                         <span>Sube la imagen</span>
-                        <input id="subir-imagen" name="subir-imagen" type="file" class="sr-only">
+                        <input id="subir-imagen" name="imagen" type="file" class="sr-only">
                       </label>
                       <p class="pl-1">o arrastra y suéltala aquí</p>
                     </div>
-                    <p class="text-xs/5 text-gray-600">PNG, JPG, GIF hasta 10MB</p>
+                    <p class="text-xs/5 text-gray-600">PNG, JPEG, JPG, GIF hasta 2MB</p>
                   </div>
                 </div>
               </div>

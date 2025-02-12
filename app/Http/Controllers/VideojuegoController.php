@@ -33,8 +33,15 @@ class VideojuegoController extends Controller
             'lanzamiento' => ['required'],
             'genero' => ['required'],
             'plataforma' => ['required'],
+            'imagen' => ['nullable','image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
         ]);
         
+        if (request()->hasFile('imagen')) {
+            $rutaImagen = request()->file('imagen')->store('images', 'public');
+        } else {
+            $rutaImagen = 'images/ipd.webp';
+        }
+
         Videojuego::create([
             'user_id' => Auth::getUser()->id,
             'titulo' => request('titulo'),
@@ -42,7 +49,7 @@ class VideojuegoController extends Controller
             'lanzamiento' => request('lanzamiento'),
             'genero' => request('genero'),
             'plataforma' => request('plataforma'),
-            // 'imagen' => request('imagen')
+            'imagen' => $rutaImagen,
         ]);
     
         return redirect('/videojuegos');
