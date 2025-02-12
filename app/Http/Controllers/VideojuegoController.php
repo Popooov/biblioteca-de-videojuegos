@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VideojuegoCreado;
 use App\Models\User;
 use App\Models\Videojuego;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 
 class VideojuegoController extends Controller
 {
@@ -42,7 +44,7 @@ class VideojuegoController extends Controller
             $rutaImagen = 'images/ipd.webp';
         }
 
-        Videojuego::create([
+        $videojuego = Videojuego::create([
             'user_id' => Auth::getUser()->id,
             'titulo' => request('titulo'),
             'descripcion' => request('descripcion'),
@@ -51,6 +53,10 @@ class VideojuegoController extends Controller
             'plataforma' => request('plataforma'),
             'imagen' => $rutaImagen,
         ]);
+
+        Mail::to($videojuego->user)->send(
+            new VideojuegoCreado($videojuego)
+        );
     
         return redirect('/videojuegos');
     }
